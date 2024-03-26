@@ -13,6 +13,9 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Check if package.json exists
+      run: test -f package.json || { echo "Error: package.json not found"; exit 1; }
+
     - name: Install dependencies
       run: npm install
 
@@ -25,6 +28,9 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+
+    - name: Check if package.json exists
+      run: test -f package.json || { echo "Error: package.json not found"; exit 1; }
 
     - name: Install dependencies
       run: npm install
@@ -39,6 +45,9 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Check if package.json exists
+      run: test -f package.json || { echo "Error: package.json not found"; exit 1; }
+
     - name: Deploy to staging
       run: |
         # Your deployment commands here
@@ -51,6 +60,9 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+
+    - name: Check if package.json exists
+      run: test -f package.json || { echo "Error: package.json not found"; exit 1; }
 
     - name: Deploy to production
       run: |
